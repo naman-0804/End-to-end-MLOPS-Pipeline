@@ -40,6 +40,8 @@ jobs:
 
     # 6. Step: Run Automated Pytest Suite
     - name: Run Pytest Suite
+      env:
+        PYTHONPATH: .
       run: |
         pytest tests/ -v
 
