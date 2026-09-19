@@ -3,6 +3,7 @@ import time
 import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Response
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
@@ -64,6 +65,18 @@ def get_metrics():
 @app.get("/")
 def health_check():
     return {"status": "healthy", "service": "titanic-survival-prediction"}
+
+
+@app.get("/drift", response_class=FileResponse)
+def get_drift_report():
+    """Serves the interactive Evidently AI drift report HTML."""
+    report_path = os.path.join("monitoring", "drift_report.html")
+    if not os.path.exists(report_path):
+        raise HTTPException(
+            status_code=404, 
+            detail="Drift report not found. Run drift detection first."
+        )
+    return FileResponse(report_path, media_type="text/html")
 
 
 @app.post("/predict", response_model=PredictionResponse)

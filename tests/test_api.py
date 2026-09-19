@@ -46,3 +46,10 @@ def test_predict_endpoint_invalid_input():
     }
     response = client.post("/predict", json=invalid_payload)
     assert response.status_code == 422  # Unprocessable Entity
+
+
+def test_drift_endpoint():
+    """Test GET /drift returns HTML drift report."""
+    response = client.get("/drift")
+    assert response.status_code == 200
+    assert "text/html" in response.headers.get("content-type", "")

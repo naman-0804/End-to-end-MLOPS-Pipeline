@@ -12,10 +12,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. Copy necessary application code and models
+# 5. Copy necessary application code, models, and monitoring artifacts
 COPY api/ ./api/
 COPY src/ ./src/
 COPY models/ ./models/
+COPY monitoring/ ./monitoring/
 
 # 6. Expose the port FastAPI runs on
 EXPOSE 8000
