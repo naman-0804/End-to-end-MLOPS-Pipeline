@@ -37,10 +37,9 @@ def generate_drift_report(
     ref_df = reference_data[features]
     curr_df = current_data[features]
 
-    # Create Evidently report
+    # Create clean, focused Data Drift report
     report = Report(metrics=[
-        DataDriftPreset(),
-        DataQualityPreset()
+        DataDriftPreset()
     ])
 
     report.run(reference_data=ref_df, current_data=curr_df)
