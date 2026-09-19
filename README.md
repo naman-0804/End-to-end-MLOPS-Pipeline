@@ -1,5 +1,5 @@
 # Titanic Survival Prediction - End-to-End MLOps Pipeline
-
+## 70% Done by me ,Guided by GPT
 ## Overview
 
 This project demonstrates a complete MLOps workflow by building, deploying, and monitoring a machine learning model for Titanic survival prediction. The focus is on implementing production-grade MLOps practices rather than developing a complex machine learning model.
