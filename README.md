@@ -46,6 +46,7 @@ FastAPI Inference Service
  │
  └── Evidently AI Drift Detection
 ```
+<img width="685" height="505" alt="image" src="https://github.com/user-attachments/assets/31baa365-4d33-4b7c-89d8-c591a8d54be6" />
 
 ---
 
